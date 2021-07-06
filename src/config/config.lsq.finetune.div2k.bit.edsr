@@ -1,0 +1,63 @@
+
+# all options have one space ahead, replace with `#` to denote it
+# do not add extra space to keep left alignment
+
+######### task related options #########
+# model name
+model='EDSR'
+
+# SR scale
+scale=2
+patch_size=96
+#scale=4
+#patch_size=192
+
+# save dir. feature map: 8bit; weight: 8bit; output: 8bit
+save=edsr_baseline_x2_a8w8o8
+
+# data
+data_train=DIV2K
+data_test=DIV2K
+
+options="$options --ext sep"
+
+# clear last training folder
+ options="$options --reset"
+
+# pretrained model
+#options="$options --test_only"
+
+# training hyper-paramters
+#options="$options --batch_size 10"
+ options="$options --lr 1e-4"
+#options="$options --optimizer SGD"
+
+# keyword
+ options="$options --keyword PReLU,dorefa,lsq"
+
+# pretrained model, use relative path, do not inlcude user name
+ options="$options --pre_train ../experiment/config.baseline.train-scratch.div2k.fp.edsr_20200812/model/model_best.pt"
+#options="$options --pre_train ../experiment/EDSR_x2_a4w4o8_lr=5e-5_pretrain_fp_stable20_qloss0.3_sgdr_20201023/model/model_latest.pt"
+
+######### quantization related options #########
+
+# LSQ
+# half_range is True for fm, False for weight and output by default
+ options="$options --fm_bit 8 --fm_enable"
+ options="$options --wt_bit 8 --wt_enable"
+ options="$options --ot_bit 8 --ot_enable"
+
+# policy. For some layer, the half_range should be set to False for the fm.
+ options="$options --policy config/edsr-policy.txt"
+
+# other options
+#options="$options --fm_grad_type STE-scale"
+#options="$options --wt_grad_type STE-scale"
+
+# fm_half_range is 'store_false'
+ options="$options --fm_half_range"
+#options="$options --wt_adaptive var-mean"
+ options="$options --wt_quant_group 1"
+ options="$options --fm_quant_group 1"
+ options="$options --stable 20"
+ options="$options --lr_policy sgdr"

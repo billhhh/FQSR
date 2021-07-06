@@ -1,0 +1,41 @@
+
+# this is an example policy config to change the default quantization related options
+# check the model structure and log file to verify whether the fuction is expected. Otherwise, report a bug/issue to me.
+
+on init:
+  by_index: all
+  quant_loss_enable: True
+  #quant_loss_function: L1
+  quant_loss_alpha: 0.3
+
+  ## change the first quantization layer (layer with index=1), and set half_range of its feautremap quantization to be True
+  #by_index: 1
+  #by_tag: fm
+  #half_range: True
+
+  ## disable quantization function for the output in all layers
+  #by_index: all
+  #by_tag: ot
+  #enable: False
+
+  ## enable the output quantization for layer 2 and 5
+  #by_index: 2, 5
+  #by_tag: ot
+  #enable: True
+
+  # edsr
+  #by_index: 0 51
+  #enable: False
+
+  by_index: 1 4 7 10 13 16 19 22 25 28 31 34 37 40 43 46 49 50
+  by_tag: fm
+  half_range: False
+
+  # layer 0 8bit fm
+  by_index: 0
+  by_tag: fm
+  enable: False
+
+  by_index: 51 52 53
+  by_tag: ot
+  enable: False

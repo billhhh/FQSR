@@ -1,0 +1,31 @@
+
+######### task related options #########
+# model name
+ model='EDSR'
+
+# SR scale
+scale=2
+patch_size=96
+#scale=4
+#patch_size=192
+
+# save dir
+ save=edsr_baseline_x2
+
+# data
+ data_train=DIV2K
+ data_test=DIV2K
+ options="$options --ext sep"
+
+# clear last training folder
+ options="$options --reset"
+
+# pretrained model
+#options="$options --pretrained xxx"
+
+# training hyper-paramters
+
+# keyword (original EDSR uses ReLU)
+ options="$options --keyword PReLU"
+
+######### quantization related options #########

@@ -1,0 +1,61 @@
+
+######### task related options #########
+# model name
+ model='SRResNet'
+
+# SR scale
+scale=2
+patch_size=96
+#scale=4
+#patch_size=192
+
+# save dir
+ save=srresnet_x2_PReLU_BN_a8w8o8
+
+# data
+data_train=DIV2K
+data_test=DIV2K
+
+options="$options --ext sep"
+
+# clear last training folder
+ options="$options --reset"
+
+# pretrained model
+#options="$options --test_only"
+
+# training hyper-paramters
+#options="$options --batch_size 10"
+ options="$options --lr 1e-3"
+#options="$options --optimizer SGD"
+
+# keyword
+ options="$options --keyword PReLU,dorefa,lsq"
+#options="$options --keyword PReLU,pact,lsq"
+
+options="$options --pre_train ../experiment/srresnet_baseline_x2_PReLU_BN/model/model_best.pt"
+#options="$options --pre_train ../experiment/SRResNet_x2_fp_lr=1e-3_prelu_lite10_20201103/model/model_best.pt"
+
+######### quantization related options #########
+
+# LSQ
+# half_range is True for fm, False for weight and output by default
+ options="$options --fm_bit 8 --fm_enable"
+ options="$options --wt_bit 8 --wt_enable"
+ options="$options --ot_bit 8 --ot_enable"
+
+# policy. For some layer, the half_range should be set to False for the fm.
+ options="$options --policy config/srresnet-policy.txt"
+
+# other options
+#options="$options --fm_grad_type STE-scale"
+#options="$options --wt_grad_type STE-scale"
+
+# fm_half_range is 'store_false'
+#options="$options --fm_half_range"
+#options="$options --wt_adaptive var-mean"
+ options="$options --wt_quant_group 1"
+ options="$options --fm_quant_group 1"
+ options="$options --stable 20"
+ options="$options --lr_policy sgdr"
+#options="$options --srresnet_lite_layers 10"
