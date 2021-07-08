@@ -71,4 +71,4 @@ If this respository is useful for your research, please consider citing:
 ```
 
 ## Acknowledgement
-Part of the code is revised from the [Pytorch implementation of EDSR](https://github.com/sanghyun-son/EDSR-PyTorch).
+Part of the code is revised from the [EDSR](https://github.com/sanghyun-son/EDSR-PyTorch) and [SRResNet](https://github.com/twtygqyy/pytorch-SRResNet).
