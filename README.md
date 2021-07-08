@@ -1,6 +1,6 @@
 # FQSR
 
-Codes for ACMMM 2021 paper "Fully Quantized Image Super-Resolution Networks".
+Official codes for ACMMM 2021 paper "Fully Quantized Image Super-Resolution Networks".
 
 https://arxiv.org/abs/2011.14265
 
