@@ -56,3 +56,19 @@ CUDA_VISIBLE_DEVICES=0 bash train.sh config/config.lsq.finetune.div2k.bit.edsr $
 
 For model evaluation, the resume path of the tested model can be specified in the corresponding `config/config.lsq.finetune.div2k.bit.srresnet` file.
 Remember to turn on the `--test_only` option.
+
+## Citation
+
+If this respository is useful for your research, please consider citing:
+
+```angular2html
+@article{wang2021fully,
+  title={Fully Quantized Image Super-Resolution Networks},
+  author={Hu Wang, Peng Chen, Bohan Zhuang, Chunhua Shen},
+  journal={ACM Multimedia},
+  year={2021}
+}
+```
+
+## Acknowledgement
+Part of the code is revised from the [Pytorch implementation of EDSR](https://github.com/sanghyun-son/EDSR-PyTorch).
