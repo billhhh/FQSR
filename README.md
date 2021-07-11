@@ -62,11 +62,11 @@ Remember to turn on the `--test_only` option.
 If this respository is useful for your research, please consider citing:
 
 ```angular2html
-@article{wang2021fully,
+@article{wang2020fully,
   title={Fully Quantized Image Super-Resolution Networks},
-  author={Hu Wang, Peng Chen, Bohan Zhuang, Chunhua Shen},
-  journal={ACM Multimedia},
-  year={2021}
+  author={Wang, Hu and Chen, Peng and Zhuang, Bohan and Shen, Chunhua},
+  journal={arXiv preprint arXiv:2011.14265},
+  year={2020}
 }
 ```
 
