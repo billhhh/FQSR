@@ -57,6 +57,8 @@ CUDA_VISIBLE_DEVICES=0 bash train.sh config/config.lsq.finetune.div2k.bit.edsr $
 For model evaluation, the resume path of the tested model can be specified in the corresponding `config/config.lsq.finetune.div2k.bit.srresnet` file.
 Remember to turn on the `--test_only` option.
 
+Enjoy!!
+
 ## Citation
 
 If this respository is useful for your research, please consider citing:
